@@ -3,7 +3,7 @@ $(document).ready(function(){
       if ($("#car")[0].checkValidity()) {
         //prevent Default functionality
         e.preventDefault();
-
+        $("#overlay").show();
         //get the action-url of the form
         var actionurl = e.currentTarget.action;
 
@@ -17,8 +17,11 @@ $(document).ready(function(){
                     document.getElementById('result').innerHTML = data.carPrice;
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
-                    alert(xhr.status);
-                    alert(thrownError);
+                    document.getElementById('result').innerHTML = "<p class='text-danger'> Error in predicting selling price </p>";
+                    console.log(thrownError);
+                },
+                complete: function() {
+                 $("#overlay").hide();
                 }
         });
       }
