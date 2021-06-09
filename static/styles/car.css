@@ -1,0 +1,5 @@
+.main-container {
+  margin-top: 30px !important;
+  margin-bottom: 30px !important;
+  min-height: calc(100vh - 42px - 71.24px - 60px);
+}

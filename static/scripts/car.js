@@ -1,8 +1,5 @@
 $(document).ready(function(){
-//$( "#predict-price" ).click(function() {
-  //alert( "Handler for .click() called." );
    $("#car").submit(function(e){
-
       if ($("#car")[0].checkValidity()) {
         //prevent Default functionality
         e.preventDefault();
