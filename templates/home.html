@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4 mb-4">
+<form id="car" action="/predictPrice" method="post" class="needs-validation" novalidate>
+<div class="mb-3">
+    <label for="car-model" class="form-label">Car Model</label>
+    <select id="car-model" name="car-model" class="form-select" required>
+        <option selected disabled value="">--Select--</option>
+        {% for i in car_name %}
+        <option>{{i}}</option>
+        {% endfor %}
+    </select>
+     <div class="invalid-feedback">
+      Please provide a valid car model.
+    </div>
+</div>
+<div class="mb-3">
+    <label for="year" class="form-label">Year</label>
+    <input id="year" class="form-control" name="year" type='number' placeholder="Add a year" required min="1700" max="{{ current_year }}">
+     <div class="invalid-feedback" >
+      Please provide a valid year.
+    </div>
+</div>
+<div class="mb-3">
+     <label for="Km-driven" class="form-label">KmDriven</label>
+     <input id="km-driven" class="form-control" name="km-driven" placeholder="Add a Km driven" type='number' required min = "0" step=any>
+     <div class="invalid-feedback">
+      Please provide a valid km driven.
+    </div>
+</div>
+<div class="mb-3">
+     <label for="fuel" class="form-label">Fuel</label>
+     <select id="fuel" name="fuel" class="form-select" required>
+         <option selected disabled value="">--Select--</option>
+         <option value="1">Diesel</option>
+         <option value="2">Petrol</option>
+         <option value="3">LPG</option>
+         <option value="4">CNG</option>
+     </select>
+     <div class="invalid-feedback">
+      Please provide a valid fuel.
+    </div>
+</div>
+<div class="mb-3">
+     <label for="seller-type" class="form-label">Seller Type</label>
+     <select id="seller-type" name="seller-type" class="form-select" required>
+         <option selected disabled value="">--Select--</option>
+         <option value="1">Individual</option>
+         <option value="2">Dealer</option>
+         <option value="3">Trustmark Dealer</option>
+     </select>
+     <div class="invalid-feedback">
+      Please provide a valid seller.
+    </div>
+</div>
+<div class="mb-3">
+    <label for="transmission" class="form-label">Transmission</label>
+    <select id="transmission" name="transmission" class="form-select" required>
+         <option selected disabled value="">--Select--</option>
+         <option value="1">Manual</option>
+         <option value="2">Automatic</option>
+    </select>
+     <div class="invalid-feedback">
+      Please provide a valid transmission.
+    </div>
+</div>
+<div class="mb-3">
+    <label for="owner" class="form-label">Owner</label>
+    <select id="owner" name="owner" class="form-select" required>
+        <option selected disabled value="">--Select--</option>
+        <option value="0">First Owner</option>
+        <option value="0">Second Owner</option>
+        <option value="0">Third Owner</option>
+        <option value="0">Fourth & Above Owner</option>
+    </select>
+     <div class="invalid-feedback">
+      Please provide a valid owner.
+    </div>
+</div>
+<div class="mb-3">
+    <label for="mileage" class="form-label">Mileage</label>
+    <input id="mileage" name="mileage" type='number' class="form-control" placeholder="Add a mileage" required min="0" step=any>
+     <div class="invalid-feedback">
+      Please provide a valid mileage.
+    </div>
+</div>
+<div class="mb-3">
+    <label for="engine" class="form-label">Engine CC</label>
+    <input id="engine" name="engine" type='number' class="form-control" placeholder="Add a engine" required min="0" step=any>
+     <div class="invalid-feedback">
+      Please provide a valid engine.
+    </div>
+</div>
+<div class="mb-3">
+    <label for="max-power" class="form-label">Max Power</label>
+    <input id="max-power" name="max-power" type='number' class="form-control" placeholder="Add a max power" required min="0" step=any>
+     <div class="invalid-feedback">
+      Please provide a valid max power.
+    </div>
+</div>
+<div class="mb-3">
+     <label for="torque" class="form-label">Torque</label>
+     <input id="torque" name="torque" type='text' class="form-control" placeholder="Add a torque rpm" required min="1" step=any>
+     <div class="invalid-feedback">
+      Please provide a valid torque.
+    </div>
+</div>
+<div class="mb-3">
+     <label for="seats" class="form-label">Seats</label>
+     <input id="seats" name="seats" type='number' class="form-control" placeholder="Add a seat" required min="1" step=any>
+     <div class="invalid-feedback">
+      Please provide a valid seats.
+    </div>
+</div>
+<div class="mb-3">
+     <input id="predict-price" name="predict-price" value="Predict Price" type="submit" required>
+</div>
+</form>
+<div class="mb-3" id="result"> </div>
+</div>
+{% endblock %}
